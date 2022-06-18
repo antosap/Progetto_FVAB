@@ -4,9 +4,9 @@ import pandas as pd
 
 # mediap_util è il codice della Dott. Bisogni, LIPS la funzione per gli occhi e nel codice della
 # bisogni ho cancellato il ritorno di num , ovvero il conteggio dei volti, perchè non mi serve
-from mediap_util import LEYEB, REYEB
+from mediap_util import REYEB,LEYEB
 
-pathtemp= glob2.glob("imgcampioni/**/*.png")
+# pathtemp= glob2.glob("imgcampioni/**/*.png")
 pathList = [glob2.glob("Dataset/cohn_kanade_1/**/*.png"),
             glob2.glob("Dataset/cohn_kanade_2/**/*.png"),
             glob2.glob("Dataset/cohn_kanade_3/**/*.png"),
@@ -24,10 +24,10 @@ def landmark(path):
     for i, file in enumerate(path):
 
         # creo il dataframe
-        image=cv2.imread(file)
+        image = cv2.imread(file)
         cordL = LEYEB(image)
         cordR = REYEB(image)
-        df = pd.DataFrame(cordL+cordR, columns=['x', 'y', 'z'])
+        df = pd.DataFrame(cordL + cordR, columns=['x', 'y', 'z'])
         # nome del file
         fileName = ""
         for c in file[::-1]:
@@ -38,14 +38,13 @@ def landmark(path):
         fileName = fileName.replace(".png", "")
 
         # creo i csv
-        pathFile = "csv_landmark/EyeB_csv_landmark/" + fileName + ".csv"
+        pathFile = "test_32_sogg/csv_landmark/EyeB_csv_landmark/" + fileName + ".csv"
         df.to_csv(pathFile.format(i), sep=',', index=False)
 
         # incremento contatore file csv
         print(i)
-
-
 # landmark(pathtemp)
-
 # eseguire manualmente su 2/3 cartelle per volta per evitare errore di memoria fino a soluzione contraria.
-landmark(pathList[0])
+# landmark(pathList[7])
+# landmark(pathList[8])
+

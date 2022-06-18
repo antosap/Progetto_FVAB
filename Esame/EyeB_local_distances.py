@@ -4,8 +4,8 @@ import pandas as pd
 import os
 
 # path dei csv
-path_src = "csv_landmark/EyeB_csv_landmark/"
-path_dest = "csv_distances/csv_local_distances/EyeB_csv_local_distances/"
+path_src = "test_32_sogg/csv_landmark/EyeB_csv_landmark/"
+path_dest = "test_32_sogg/csv_distances/csv_local_distances/EyeB_csv_local_distances/"
 
 # cancella i vecchi csv prodotti nella destination path
 for f in os.listdir(path_dest):
@@ -60,9 +60,4 @@ def dist_locali(path):
 
 # lista files csv da scansionare nella source path
 files = glob2.glob(path_src + "*.csv")
-print("\nATTENDERE! STO GENERANDO I CSV DELLE DISTANZE LOCALI")
-
 dist_locali(files)
-# import sys
-# sys.stdout.flush()
-print("\nCSV DISTANZE LOCALI GENERATI")

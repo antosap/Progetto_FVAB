@@ -5,11 +5,11 @@ import numpy as np
 import os.path
 
 # src_csv1 e src_csv2 sono i path delle cartelle da cui andare a prendere i csv di cui fare le medie
-path = glob2.glob("csv_average/*.csv")
-src_csv1 = "csv_average/Lips_csv_average/Lips_average_locali.csv"
-src_csv2 = "csv_average/Lips_csv_average/Lips_average_locali.csv"
-filename1="cosine_similarities/EyeB_cosine_similarities/EyeB_similarity_Sogg_LocalAverage.csv"
-filename2="cosine_similarities/EyeB_cosine_similarities/EyeB_similarity_Sogg_GlobalAverage.csv"
+path = glob2.glob("test_32_sogg/csv_average/*.csv")
+src_csv1 = "test_32_sogg/csv_average/EyeB_csv_average/EyeB_average_locali.csv"
+src_csv2 = "test_32_sogg/csv_average/EyeB_csv_average/EyeB_average_globali.csv"
+filename1="test_32_sogg/cosine_similarities/EyeB_cosine_similarities/EyeB_similarity_Sogg_LocalAverage.csv"
+filename2="test_32_sogg/cosine_similarities/EyeB_cosine_similarities/EyeB_similarity_Sogg_GlobalAverage.csv"
 
 def cosineSimilarity(src_csv,filename):
     # filename1 e filename2 sono i nomi dei file che andrò a creare
@@ -17,11 +17,11 @@ def cosineSimilarity(src_csv,filename):
 
     # controllo se il file csv esiste già
     if os.path.isfile(filename):
-        print("FILE ESISTENTE, ELIMINO E RICREO ")
-        # se esiste cancella il csv vecchio nella destination path
+        print("FILE ESISTENTE! \nATTENDERE, ELIMINO E RICREO!")
+        # cancella il csv vecchio nella destination path
         os.remove(filename)
     else:
-        print("FILE INESISTENTE")
+        print("FILE INESISTENTE! \nATTENDERE, CREAZIONE DEL FILE!")
 
     # lista dei risultati similarità per soggetto
     subjects_sim = []
@@ -109,8 +109,5 @@ def cosineSimilarity(src_csv,filename):
     df_similarities.to_csv(filename, sep=",", index=None)
 
 
-print("\nATTENDERE! STO GENERANDO I CSV DELLE SIMILARITA' PER SOGGETTO \nSULLE MEDIE LOCALI E SULLE MEDIE GLOBALI\n")
 cosineSimilarity(src_csv1, filename1)
 cosineSimilarity(src_csv2, filename2)
-print("\nCSV DELLE SIMILARITA' PER SOGGETTO SU DISTANZE LOCALI GENERATO")
-print("CSV DELLE SIMILARITA' PER SOGGETTO SU DISTANZE GLOBALI GENERATO")

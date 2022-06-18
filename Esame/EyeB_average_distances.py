@@ -4,25 +4,24 @@ import glob2
 import os.path
 
 # path1 e path2 sono i path delle cartelle da cui andare a prendere i csv di cui fare le medie
-path1 = glob2.glob("csv_distances/csv_local_distances/EyeB_csv_local_distances/*.csv")
-path2 = glob2.glob("csv_distances/csv_global_distances/EyeB_csv_global_distances/*.csv")
+path1 = glob2.glob("test_32_sogg/csv_distances/csv_local_distances/EyeB_csv_local_distances/*.csv")
+path2 = glob2.glob("test_32_sogg/csv_distances/csv_global_distances/EyeB_csv_global_distances/*.csv")
 
 # filename1 e filename2 sono i nomi dei file che andrò a creare
 # e su cui faccio il controllo se esiste già
-filename1 = "csv_average/EyeB_csv_average/EyeB_average_locali.csv"
-filename2 = "csv_average/EyeB_csv_average/EyeB_average_globali.csv"
-
+filename1 = "test_32_sogg/csv_average/EyeB_csv_average/EyeB_average_locali.csv"
+filename2 = "test_32_sogg/csv_average/EyeB_csv_average/EyeB_average_globali.csv"
 
 # definisco una funzione per il calcolo delle medie a cui passo
 # il path da cui prendere i csv e il nome del file che devo creare
 def average(path, filename):
     # controllo se il file csv esiste già
     if os.path.isfile(filename):
-        print("\nFILE ESISTENTE, ELIMINO E RICREO ")
-        # se esiste cancella il csv vecchio nella destination path
+        print("FILE ESISTENTE! \nATTENDERE, ELIMINO E RICREO!")
+        # cancella il csv vecchio nella destination path
         os.remove(filename)
     else:
-        print("FILE INESISTENTE")
+        print("FILE INESISTENTE! \nATTENDERE, CREAZIONE DEL FILE!")
     files = path
 
     # inizializzo un dataframe in cui inserirò le medie
@@ -116,12 +115,7 @@ def average(path, filename):
             # incremento l'indice di colonna per poter inserire nell'header il soggetto_emozione
             column += 1
 
-print("\nATTENDERE! STO GENERANDO I CSV DELLE \nMEDIE DELLE DISTANZE LOCALI E GLOBALI")
 average(path1, filename1)
 average(path2, filename2)
-print("\nCSV MEDIE DISTANZE LOCALI GENERATI")
-print("CSV MEDIE DISTANZE GLOBALI GENERATI")
 
 
-S129_011_00000009.csv
-S129_011_00000011.csv

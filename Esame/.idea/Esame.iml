@@ -5,4 +5,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="C:\Users\macro\Documents\GitHub\Progetto_FVAB\Esame\requirements.txt" />
+  </component>
+  <component name="ReSTService">
+    <option name="DOC_DIR" value="C:\Users\macro\Documents\GitHub\Progetto_FVAB\Esame" />
+    <option name="TXT_IS_RST" value="true" />
+  </component>
 </module>

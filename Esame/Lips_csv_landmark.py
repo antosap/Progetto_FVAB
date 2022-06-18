@@ -6,7 +6,7 @@ import pandas as pd
 # bisogni ho cancellato il ritorno di num , ovvero il conteggio dei volti, perchè non mi serve
 from mediap_util import LIPS
 
-pathtemp= glob2.glob("imgcampioni/**/*.png")
+# pathtemp= glob2.glob("imgcampioni/**/*.png")
 pathList = [glob2.glob("Dataset/cohn_kanade_1/**/*.png"),
             glob2.glob("Dataset/cohn_kanade_2/**/*.png"),
             glob2.glob("Dataset/cohn_kanade_3/**/*.png"),
@@ -35,7 +35,7 @@ def landmark(path):
         fileName = fileName.replace(".png", "")
 
         # creo i csv
-        pathFile = "csv_landmark/Lips_csv_landmark/" + fileName + ".csv"
+        pathFile = "test_32_sogg/csv_landmark/Lips_csv_landmark/" + fileName + ".csv"
         df.to_csv(pathFile.format(i), sep=',', index=False)
 
         # incremento contatore file csv
@@ -45,3 +45,7 @@ def landmark(path):
 
 # eseguire manualmente su 2/3 cartelle per volta per evitare errore di memoria fino a soluzione contraria.
 # landmark(pathList[0])
+
+
+landmark(pathList[7])
+landmark(pathList[8])

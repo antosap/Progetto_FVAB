@@ -3,16 +3,17 @@ import pandas as pd
 import os.path
 
 # controllo se il file csv esiste già
-if os.path.isfile('label/label.csv'):
-    print ("File exist")
-    # cancella il csv vecchio nella destination path
-    os.remove('label/label.csv')
+
+if os.path.isfile('test_32_sogg/label/label.csv'):
+        print("FILE ESISTENTE! \nATTENDERE, ELIMINO E RICREO!")
+        # cancella il csv vecchio nella destination path
+        os.remove('test_32_sogg/label/label.csv')
 else:
-    print ("File not exist")
+        print("FILE INESISTENTE! \nATTENDERE, CREAZIONE DEL FILE!")
 
 
-path = glob2.glob("csv_landmark/Lips_csv_landmark/*.csv")
-path_dest = ("label/")
+path = glob2.glob("test_32_sogg/csv_landmark/Lips_csv_landmark/*.csv")
+path_dest = ("test_32_sogg/label/")
 
 sogg_list = []
 emo_list = []
@@ -48,6 +49,6 @@ for file in path:
 
     df_duplicates_removed = dfuno.drop_duplicates()
     # print(df_duplicates_removed)
-    df_duplicates_removed.to_csv(path_dest + "label.csv", sep="\t", index=None)
+    df_duplicates_removed.to_csv(path_dest + "label.csv", sep=",", index=None)
 
-print(df_duplicates_removed)
+# print(df_duplicates_removed)

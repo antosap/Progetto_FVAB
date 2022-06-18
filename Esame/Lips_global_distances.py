@@ -5,8 +5,8 @@ import os
 
 # path dei csv
 
-path_src = "csv_landmark/Lips_csv_landmark/"
-path_dest = "csv_distances/csv_global_distances/Lips_csv_global_distances/"
+path_src = "test_32_sogg/csv_landmark/Lips_csv_landmark/"
+path_dest = "test_32_sogg/csv_distances/csv_global_distances/Lips_csv_global_distances/"
 
 # cancella i vecchi csv prodotti nella destination path
 for f in os.listdir(path_dest):
@@ -67,6 +67,4 @@ def dist_globali(path):
 
 # lista files csv da scansionare nella source path
 files = glob2.glob(path_src + "*.csv")
-print("ATTENDERE! STO GENERANDO I CSV DELLE DISTANZE GLOBALI")
 dist_globali(files)
-print("CSV DISTANZE GLOBALI GENERATI")

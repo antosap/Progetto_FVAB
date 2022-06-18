@@ -4,16 +4,18 @@ import pandas as pd
 import os
 
 # path dei csv
-path_src = "csv_landmark/Lips_csv_landmark/"
-path_dest = "csv_distances/csv_local_distances/Lips_csv_local_distances/"
+path_src = "test_32_sogg/csv_landmark/Lips_csv_landmark/"
+path_dest = "test_32_sogg/csv_distances/csv_local_distances/Lips_csv_local_distances/"
 
 # cancella i vecchi csv prodotti nella destination path
 for f in os.listdir(path_dest):
     os.remove(path_dest + f)
 
+
 # funzione per calcolare la distanza tra i csv tramite la funzione euclidea
 def euclidean_dist(df1, df2):
     return np.linalg.norm(df1.values - df2.values, axis=1)
+
 
 def dist_locali(path):
     data_frame = pd.DataFrame()
@@ -60,9 +62,4 @@ def dist_locali(path):
 
 # lista files csv da scansionare nella source path
 files = glob2.glob(path_src + "*.csv")
-print("\nATTENDERE! STO GENERANDO I CSV DELLE DISTANZE LOCALI")
-
 dist_locali(files)
-# import sys
-# sys.stdout.flush()
-print("\nCSV DISTANZE LOCALI GENERATI")
