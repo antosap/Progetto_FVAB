@@ -75,9 +75,7 @@ def cosineSimilarity(src_csv,filename):
                 expression_ordered[position] = values
 
     # print("++++++++++++++++++++++++++++++++++++")
-    # print(expression_ordered[8])
-    # print(expression_ordered[9])
-    # print(expression_ordered)
+
     # calcolo il numero massimo di dati in una colonna
     max_records = 0
     for subject in expression_ordered:
