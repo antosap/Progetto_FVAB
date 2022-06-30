@@ -22,7 +22,6 @@ def landmark(path):
     # le cartelle e le sottocartelle andando ad automatizzare il processo di scorrimento delle directory
     # for per lo scorrimento delle directory
     for i, file in enumerate(path):
-
         # creo il dataframe
         df = pd.DataFrame(LIPS(cv2.imread(file)), columns=['x', 'y', 'z'])
         # nome del file

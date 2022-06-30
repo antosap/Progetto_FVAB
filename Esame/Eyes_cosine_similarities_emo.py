@@ -14,6 +14,7 @@ src_csv2 = "test_32_sogg/csv_average/Eyes_csv_average/Eyes_average_locali.csv"
 filename1 = "test_32_sogg/cosine_similarities/Eyes_cosine_similarities/Eyes_similarity_emo_LocalAverage.csv"
 filename2 = "test_32_sogg/cosine_similarities/Eyes_cosine_similarities/Eyes_similarity_emo_GlobalAverage.csv"
 
+
 def cosineSimilarity(src_csv,filename):
 
     # controllo se il file csv esiste già
@@ -116,11 +117,11 @@ def cosineSimilarity(src_csv,filename):
                 emotions_sim.append(similarity_column)
 
     # al termine del calcolo dei risultati delle similarità, la lista avrà sottoliste di dimensioni diverse
-    # per normalizzare aggiungo il valore 0.0 per tutte le sottoliste con meno elementi del numero massimo di records
+    # per normalizzare aggiungo il valore 0.5 per tutte le sottoliste con meno elementi del numero massimo di records
     for result_list in emotions_sim:
         if len(result_list) < max_records:
             for i in range(len(result_list), max_records):
-                result_list.append(0.0)
+                result_list.append(0.5)
 
     # creo lista per nomi delle colonne da inserire nell'header del csv da generare
     csv_col_names = []

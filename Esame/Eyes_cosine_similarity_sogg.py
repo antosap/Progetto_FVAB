@@ -11,6 +11,8 @@ src_csv2 = "test_32_sogg/csv_average/Eyes_csv_average/Eyes_average_globali.csv"
 filename1="test_32_sogg/cosine_similarities/Eyes_cosine_similarities/Eyes_similarity_Sogg_LocalAverage.csv"
 filename2="test_32_sogg/cosine_similarities/Eyes_cosine_similarities/Eyes_similarity_Sogg_GlobalAverage.csv"
 
+
+
 def cosineSimilarity(src_csv,filename):
     # filename1 e filename2 sono i nomi dei file che andrò a creare
     # e su cui faccio il controllo se esiste già
@@ -93,7 +95,7 @@ def cosineSimilarity(src_csv,filename):
     for result_list in subjects_sim:
         if len(result_list) < max_records:
             for i in range(len(result_list), max_records):
-                result_list.append(0)
+                result_list.append(0.5)
 
     # creo lista per nomi delle colonne da inserire nell'header del csv da generare
     csv_col_names = []
